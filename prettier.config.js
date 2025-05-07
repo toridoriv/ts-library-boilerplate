@@ -1,3 +1,5 @@
 import { prettierConfig } from "@toridoriv/eslint-config";
 
-export default prettierConfig;
+const { printWidth, endOfLine, useTabs, ...config } = prettierConfig;
+
+export default config;

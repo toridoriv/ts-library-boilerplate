@@ -1,10 +1,12 @@
 import { eslintConfig } from "@toridoriv/eslint-config";
 
 // Use this to set a single rule for TypeScript files.
-eslintConfig.setTypescriptRule("@typescript-eslint/no-redeclare", "off")
+eslintConfig.setTypescriptRule("@typescript-eslint/no-redeclare", "off");
 
 // Use this to set a rules for JavaScript modules.
-// eslintConfig.javascript.setJavascriptModuleRules("rule", ["off", {}]);
+eslintConfig.javascript.setJavascriptModuleRules({
+  "no-unused-vars": ["warn", { ignoreRestSiblings: true }],
+});
 
 /**
  * @import {Linter} from "eslint"
