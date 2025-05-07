@@ -1,0 +1,29 @@
+{
+  "name": "@toridoriv/ts-library-boilerplate",
+  "version": "0.1.0",
+  "description": "Boilerplate for library written in TypeScript.",
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "author": {
+    "name": "Victoria Rodriguez",
+    "email": "vrodriguezfe@icloud.com",
+    "url": "https://github.com/toridoriv"
+  },
+  "homepage": "https://github.com/toridoriv/ts-library-boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toridoriv/ts-library-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toridoriv/ts-library-boilerplate/issues",
+    "email": "vrodriguezfe@icloud.com"
+  },
+  "devDependencies": {
+    "@toridoriv/eslint-config": "github:toridoriv/eslint-config",
+    "@types/node": "^22.15.14",
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "eslint": "^9.26.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  }
+}
