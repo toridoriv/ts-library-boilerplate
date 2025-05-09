@@ -18,3 +18,7 @@ npm-debug.log*
 tmp.*
 tmp/
 var/tmp
+
+# 💬 Build
+lib
+*.tgz
