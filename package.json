@@ -11,6 +11,12 @@
     "email": "vrodriguezfe@icloud.com",
     "url": "https://github.com/toridoriv"
   },
+  "files": [
+    "lib",
+    "bin",
+    "LICENSE",
+    "README.md"
+  ],
   "homepage": "https://github.com/toridoriv/ts-library-boilerplate",
   "repository": {
     "type": "git",
@@ -41,7 +47,9 @@
       "path": "sbin"
     },
     "dts-bundle": {
-      "dependencies": ["prettier"]
+      "dependencies": [
+        "prettier"
+      ]
     }
   }
 }
