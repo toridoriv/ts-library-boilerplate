@@ -4,8 +4,21 @@
   "description": "Boilerplate for library written in TypeScript.",
   "type": "module",
   "license": "GPL-3.0-only",
-  "main": "lib/boilerplate.js",
-  "typings": "lib/boilerplate.d.ts",
+  "main": "./lib/main.cjs",
+  "module": "./lib/main.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/main.d.ts",
+        "default": "./lib/main.js"
+      },
+      "require": {
+        "types": "./lib/main.d.cts",
+        "default": "./lib/main.cjs"
+      }
+    }
+  },
+  "types": "./lib/main.d.ts",
   "author": {
     "name": "Victoria Rodriguez",
     "email": "vrodriguezfe@icloud.com",
@@ -29,27 +42,21 @@
   "scripts": {
     "chmod": "find sbin -type f -not -name '*utils*' -not -name '*helpers*' -exec chmod +x {} \\;",
     "prebuild": "rm -rf lib",
-    "build": "scripty"
+    "build": "tsup"
   },
   "devDependencies": {
     "@toridoriv/eslint-config": "github:toridoriv/eslint-config",
-    "@types/bun": "^1.2.12",
     "@types/node": "^22.15.14",
     "@typescript-eslint/eslint-plugin": "^8.32.0",
-    "dts-bundle-generator": "^9.5.1",
     "eslint": "^9.26.0",
     "prettier": "^3.5.3",
     "scripty": "github:toridoriv/scripty",
+    "tsup": "^8.4.0",
     "typescript": "^5.8.3"
   },
   "config": {
     "scripty": {
       "path": "sbin"
-    },
-    "dts-bundle": {
-      "dependencies": [
-        "prettier"
-      ]
     }
   }
 }
