@@ -1,7 +1,7 @@
 {
-  "name": "@toridoriv/ts-library-boilerplate",
+  "name": "epistolary.js",
   "version": "0.1.0",
-  "description": "Boilerplate for library written in TypeScript.",
+  "description": "Library with utilities for writing epistolary fiction.",
   "type": "module",
   "license": "GPL-3.0-only",
   "main": "./lib/main.cjs",
@@ -30,13 +30,13 @@
     "LICENSE",
     "README.md"
   ],
-  "homepage": "https://github.com/toridoriv/ts-library-boilerplate",
+  "homepage": "https://github.com/toridoriv/epistolary.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/toridoriv/ts-library-boilerplate.git"
+    "url": "git+https://github.com/toridoriv/epistolary.js.git"
   },
   "bugs": {
-    "url": "https://github.com/toridoriv/ts-library-boilerplate/issues",
+    "url": "https://github.com/toridoriv/epistolary.js/issues",
     "email": "vrodriguezfe@icloud.com"
   },
   "scripts": {
