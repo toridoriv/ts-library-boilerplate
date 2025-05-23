@@ -52,7 +52,7 @@
     "prettier": "^3.5.3",
     "scripty": "github:toridoriv/scripty",
     "tsup": "^8.4.0",
-    "typescript": "^5.9.0-dev.20250515"
+    "typescript": "^5.9.0-dev.20250523"
   },
   "overrides": {
     "typescript": "$typescript"
