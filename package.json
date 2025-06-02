@@ -48,7 +48,7 @@
     "@toridoriv/eslint-config": "github:toridoriv/eslint-config",
     "@types/node": "^22.15.29",
     "@typescript-eslint/eslint-plugin": "^8.32.0",
-    "eslint": "^9.26.0",
+    "eslint": "^9.28.0",
     "prettier": "^3.5.3",
     "scripty": "github:toridoriv/scripty",
     "tsup": "^8.4.0",
