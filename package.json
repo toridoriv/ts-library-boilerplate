@@ -45,6 +45,7 @@
     "build": "tsup"
   },
   "devDependencies": {
+    "@sinclair/typebox": "^0.34.33",
     "@toridoriv/eslint-config": "github:toridoriv/eslint-config",
     "@types/node": "^22.15.29",
     "@typescript-eslint/eslint-plugin": "^8.32.0",
