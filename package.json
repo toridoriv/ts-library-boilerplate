@@ -39,16 +39,24 @@
     "url": "https://github.com/toridoriv/ts-library-boilerplate/issues",
     "email": "vrodriguezfe@icloud.com"
   },
+  "imports": {
+    "#predicates": "./source/utils/predicates.ts",
+    "#typings": "./source/utils/typings.ts"
+  },
   "scripts": {
     "chmod": "find sbin -type f -not -name '*utils*' -not -name '*helpers*' -exec chmod +x {} \\;",
     "prebuild": "rm -rf lib",
-    "build": "tsup"
+    "build": "tsup",
+    "test": "node --experimental-transform-types --disable-warning=ExperimentalWarning --test",
+    "test:coverage": "npm run test -- --experimental-test-coverage"
   },
   "devDependencies": {
     "@sinclair/typebox": "^0.34.33",
     "@toridoriv/eslint-config": "github:toridoriv/eslint-config",
+    "@types/chai": "^5.2.2",
     "@types/node": "^22.15.29",
     "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "chai": "^5.2.0",
     "eslint": "^9.28.0",
     "prettier": "^3.5.3",
     "scripty": "github:toridoriv/scripty",
