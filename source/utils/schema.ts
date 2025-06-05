@@ -7,6 +7,8 @@ import type { KeyOf } from "#typings";
 
 export type SchemaName = KeyOf<JavaScriptTypeBuilder>;
 
+const excludeFrom: SchemaName[] = ["Module", "Rest", "Transform"];
+
 /**
  * Custom schema builder that adds the `parse` method to the TypeBox schemas.
  */
@@ -19,11 +21,15 @@ export const Schema: JavaScriptTypeBuilder = (() => {
         return build;
       }
 
+      if (excludeFrom.includes(build.name as SchemaName)) {
+        return build;
+      }
+
       return {
         [build.name](...args: unknown[]) {
           const schema = build(...args) as TSchema;
 
-          schema.parse = parse.bind(schema);
+          schema.parse = createParse(schema);
 
           return schema;
         },
@@ -34,12 +40,16 @@ export const Schema: JavaScriptTypeBuilder = (() => {
 
 type ValueOrUnknown<T> = T | (unknown & {});
 
-function parse<T extends TSchema>(this: T, value: ValueOrUnknown<Static<T>>): Static<T> {
-  return Value.Parse(this, value);
+type Parse = <T extends TSchema>(this: T, value: ValueOrUnknown<Static<T>>) => Static<T>;
+
+function createParse<T extends TSchema>(schema: T): Parse {
+  return function parse(value) {
+    return Value.Parse(schema, value);
+  };
 }
 
 declare module "@sinclair/typebox" {
   interface TSchema {
-    parse: typeof parse;
+    parse: Parse;
   }
 }
