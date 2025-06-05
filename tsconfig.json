@@ -30,7 +30,7 @@
     "useUnknownInCatchVariables": true
   },
   "exclude": [".tmp", "*.log", "coverage", "dist", "logs", "node_modules", "tmp"],
-  "include": ["tsup.config.ts", "prettier.config.js", "eslint.config.js", "source"],
+  "include": ["tsup.config.ts", "prettier.config.js", "eslint.config.js", "source", "test", "vitest.config.ts"],
   "typeAcquisition": {
     "enable": false
   }
