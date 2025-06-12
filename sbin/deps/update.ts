@@ -50,8 +50,21 @@ function getVersions(dependency: string): string[] {
   return JSON.parse(output);
 }
 
-function getNewerVersions(dependency: string, current: string) {
-  const versions = getVersions(dependency).sort(semver.rcompare);
+function isPrerelease(version: string): boolean {
+  return semver.prerelease(version) !== null;
+}
+
+function isNotPrerelease(version: string): boolean {
+  return semver.prerelease(version) === null;
+}
+
+function passthrough(_version: string): boolean {
+  return true;
+}
+
+function getNewerVersions(dependency: string, current: string): string[] {
+  const validate = isPrerelease(current) ? passthrough : isNotPrerelease;
+  let versions = getVersions(dependency).sort(semver.rcompare).filter(validate);
 
   const currentIndex = versions.findIndex((v) => v === current);
 
