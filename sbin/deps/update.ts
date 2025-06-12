@@ -1,6 +1,8 @@
 #!/usr/bin/env -S node --experimental-transform-types --disable-warning=ExperimentalWarning
 import { execSync } from "node:child_process";
 
+import semver from "semver";
+
 import { getPackageJson, parseFlags } from "../utils.ts";
 
 const { flags } = parseFlags<{ name: string; title: string; scope: string }>(process.argv.slice(2), {
@@ -49,7 +51,7 @@ function getVersions(dependency: string): string[] {
 }
 
 function getNewerVersions(dependency: string, current: string) {
-  const versions = getVersions(dependency).sort((a, b) => a.localeCompare(b));
+  const versions = getVersions(dependency).sort(semver.rcompare);
 
   const currentIndex = versions.findIndex((v) => v === current);
 
@@ -57,11 +59,11 @@ function getNewerVersions(dependency: string, current: string) {
     return versions;
   }
 
-  return versions.slice(currentIndex + 1);
+  return versions.slice(0, currentIndex);
 }
 
 function updateVersion(dependency: DependencyDetails) {
-  const latest = getNewerVersions(dependency.name, dependency.current).pop();
+  const latest = getNewerVersions(dependency.name, dependency.current)[0];
 
   if (!latest) {
     console.log(`No newer versions found for ${dependency.name} (current: ${dependency.current}).`);
