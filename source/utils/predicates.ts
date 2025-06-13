@@ -35,6 +35,17 @@ export function isFunction(value: unknown): value is AnyFunction {
   return typeof value === "function";
 }
 
+/**
+ * Checks if the given value is included in the list.
+ *
+ * @param list  - The list to check against.
+ * @param value - The value to check for inclusion in the list.
+ * @returns `true` if the value is included in the list, otherwise `false`.
+ */
+export function includes<T extends AnyArray | Readonly<AnyArray>, U>(list: T, value: U): value is T[number] {
+  return list.includes(value as any);
+}
+
 export interface Is {
   array: typeof isArray;
   function: typeof isFunction;
